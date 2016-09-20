@@ -19,6 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKz-0d-5tc"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Aj-qT-kh3">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4rk-Qg-Cbu">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-Pb-itO">
                                 <items>
                                     <barButtonItem title="Pick" id="y5U-m8-qZe">
@@ -42,17 +52,25 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="AKz-0d-5tc" secondAttribute="bottom" id="4KK-M5-n9h"/>
+                            <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="4rk-Qg-Cbu" secondAttribute="bottom" constant="38" id="Kcw-bd-oqC"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="centerX" secondItem="AKz-0d-5tc" secondAttribute="centerX" id="Ktq-r6-arF"/>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="leading" secondItem="2dv-Pb-itO" secondAttribute="leading" id="Lz8-3M-Adr"/>
+                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NAx-jF-Vdj"/>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Q3f-WK-sv9"/>
+                            <constraint firstItem="4rk-Qg-Cbu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U5l-Y5-f9i"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="UIu-RJ-hqd"/>
                             <constraint firstAttribute="trailing" secondItem="AKz-0d-5tc" secondAttribute="trailing" id="Zho-VA-I2I"/>
+                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="bAq-Fx-GwM"/>
+                            <constraint firstAttribute="trailing" secondItem="9Aj-qT-kh3" secondAttribute="trailing" id="bDX-zQ-Wzh"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mvB-TB-0BE"/>
+                            <constraint firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" id="xTD-pU-7UW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="4rk-Qg-Cbu" id="30j-0f-1MO"/>
                         <outlet property="cameraButton" destination="zGe-cB-7Eo" id="zQA-Tg-LWK"/>
                         <outlet property="imagePickerView" destination="AKz-0d-5tc" id="wlF-3u-sIb"/>
+                        <outlet property="topTextField" destination="9Aj-qT-kh3" id="ZcR-0H-XBG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
