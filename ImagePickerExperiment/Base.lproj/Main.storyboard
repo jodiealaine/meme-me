@@ -26,6 +26,16 @@
                                             <action selector="selectImage:" destination="BYZ-38-t0r" id="aWx-IF-5lf"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" id="Mbr-qH-8G6">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zGe-cB-7Eo">
+                                            <rect key="frame" x="59" y="7" width="54" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Camera"/>
+                                            <connections>
+                                                <action selector="takeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vki-Tb-vEE"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -41,6 +51,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="zGe-cB-7Eo" id="zQA-Tg-LWK"/>
                         <outlet property="imagePickerView" destination="AKz-0d-5tc" id="wlF-3u-sIb"/>
                     </connections>
                 </viewController>

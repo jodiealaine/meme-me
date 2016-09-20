@@ -12,10 +12,11 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavi
     
     // MARK: Properties
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -35,10 +36,20 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavi
     // MARK: Actions
     
     @IBAction func selectImage(_ sender: UIBarButtonItem) {
-        // When I click on Pick I want the UIImagePickerController to show my images
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        // When I click on Pick I want the UIImagePickerController to show my library of images
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func takeImage(_ sender: UIButton) {
+        // When I click on Camera I want the UIImagePickerController to allow me to take a new image
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
