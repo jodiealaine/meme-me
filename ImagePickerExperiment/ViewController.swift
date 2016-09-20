@@ -20,7 +20,7 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavi
         NSStrokeColorAttributeName : UIColor.black,
         NSForegroundColorAttributeName : UIColor.white,
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 3.0
+        NSStrokeWidthAttributeName : -3.0 // Needs to be a negative in order to be stroked and filled
     ] as [String : Any]
     
     override func viewDidLoad() {
