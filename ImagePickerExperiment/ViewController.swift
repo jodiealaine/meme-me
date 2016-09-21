@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -28,11 +28,80 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavi
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Ensure Camera functionality only enabled for devices that can handle it
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
+        
+        // Handle the text field's user input through delegate callbacks
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+        
+        // Styling of Text
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = NSTextAlignment.center
         bottomTextField.textAlignment = NSTextAlignment.center
+        
+        // Subscribe to Keyboard Notifications
+        self.subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Unsubscribe from Keyboard Notifications
+        self.unsubscribeFromKeyboardNotifications()
+    }
+    
+    // MARK: Handle keyboard input
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        resetViewFrame()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        // Only remove default text
+        if !(textField.text == "TOP" || textField.text == "BOTTOM") {
+            textField.text = ""
+        }
+        if topTextField.isEditing {
+            resetViewFrame()
+        }
+    }
+    
+    func resetViewFrame(){
+        view.frame.origin.y = 0
+    }
+    
+    // MARK: Handle Keyboard Notifications
+    // Subscribe to Keyboard Notifications
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    // Unsubscribe from Keyboard Notifications
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    // When the keyboardWillShow notication is received, shift the view's frame up
+    func keyboardWillShow(notification: NSNotification){
+        if bottomTextField.isEditing {
+            view.frame.origin.y -= getKeyboardHeight(notification: notification)
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            resetViewFrame()
+        }
     }
     
     // MARK: UIImagePickerControllerDelegate
