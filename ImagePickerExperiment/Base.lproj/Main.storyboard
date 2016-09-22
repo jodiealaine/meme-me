@@ -19,11 +19,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKz-0d-5tc"/>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Aj-qT-kh3">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4rk-Qg-Cbu">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -48,28 +43,27 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-84-wqD">
-                                <frame key="frameInset" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgA-ic-e4w">
                                 <items>
-                                    <navigationItem title="Title" id="6uI-8P-Dd1">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="LOv-3n-d3R">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Iz-oP-XiD">
-                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Share"/>
-                                            </button>
+                                    <navigationItem id="CKL-wn-h5O">
+                                        <barButtonItem key="leftBarButtonItem" title="Share" id="aDg-3j-H82">
                                             <connections>
-                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="SR2-a1-22a"/>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="9kG-qe-3ir"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Aj-qT-kh3">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="leading" secondItem="4rk-Qg-Cbu" secondAttribute="leading" id="J34-ag-15b"/>
+                            <constraint firstItem="LgA-ic-e4w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="JKX-15-bmX"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="4rk-Qg-Cbu" secondAttribute="bottom" constant="40" id="Kcw-bd-oqC"/>
                             <constraint firstItem="9Aj-qT-kh3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NAx-jF-Vdj"/>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="OWM-J3-7kI"/>
@@ -78,9 +72,11 @@
                             <constraint firstItem="4rk-Qg-Cbu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U5l-Y5-f9i"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="UIu-RJ-hqd"/>
                             <constraint firstAttribute="trailing" secondItem="AKz-0d-5tc" secondAttribute="trailing" id="Zho-VA-I2I"/>
-                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="bAq-Fx-GwM"/>
+                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="91" id="bAq-Fx-GwM"/>
                             <constraint firstAttribute="trailing" secondItem="9Aj-qT-kh3" secondAttribute="trailing" id="bDX-zQ-Wzh"/>
+                            <constraint firstItem="LgA-ic-e4w" firstAttribute="leading" secondItem="9Aj-qT-kh3" secondAttribute="leading" id="e8B-tq-e9q"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mvB-TB-0BE"/>
+                            <constraint firstItem="LgA-ic-e4w" firstAttribute="trailing" secondItem="9Aj-qT-kh3" secondAttribute="trailing" id="otO-VM-yUG"/>
                             <constraint firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" id="xTD-pU-7UW"/>
                         </constraints>
                     </view>
@@ -88,7 +84,7 @@
                         <outlet property="bottomTextField" destination="4rk-Qg-Cbu" id="30j-0f-1MO"/>
                         <outlet property="cameraButton" destination="zGe-cB-7Eo" id="zQA-Tg-LWK"/>
                         <outlet property="imagePickerView" destination="AKz-0d-5tc" id="wlF-3u-sIb"/>
-                        <outlet property="shareButton" destination="LOv-3n-d3R" id="030-tw-StW"/>
+                        <outlet property="shareButton" destination="aDg-3j-H82" id="Wb3-s8-18K"/>
                         <outlet property="topTextField" destination="9Aj-qT-kh3" id="ZcR-0H-XBG"/>
                     </connections>
                 </viewController>

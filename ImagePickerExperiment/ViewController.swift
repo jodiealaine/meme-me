@@ -18,6 +18,7 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    
     var textTop: String = ""
     var textBottom: String = ""
     var image: UIImage!
@@ -178,14 +179,14 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func shareMeme(_ sender: UIBarButtonItem) {
-        print("hi")
-        save()
-        let itemsToShare = [memedImage]
-        let share = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
-        share.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
-        self.present(share, animated: true, completion: nil)
-        
+    @IBAction func shareMeme(_ sender: AnyObject) {
+        memedImage = generateMemedImage()
+        let image: UIImage = memedImage
+        let itemsToShare = [image]
+        let shareViewController : UIActivityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+        shareViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+        self.present(shareViewController, animated: true, completion: nil)
+
     }
 }
 
