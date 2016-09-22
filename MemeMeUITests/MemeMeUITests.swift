@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ImagePickerExperimentUITests: XCTestCase {
+class MemeMeUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
