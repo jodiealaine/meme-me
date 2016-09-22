@@ -16,7 +16,6 @@
 		0C0AC1031D8FFB6F0051BB9A /* MemeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AC1021D8FFB6F0051BB9A /* MemeMeUITests.swift */; };
 		0C16C9331D93E20F00BB4BC6 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16C9321D93E20F00BB4BC6 /* Meme.swift */; };
 		0C16C9341D93E20F00BB4BC6 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16C9321D93E20F00BB4BC6 /* Meme.swift */; };
-		0C1BA7451D9437B80074B42E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1BA7441D9437B80074B42E /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +50,6 @@
 		0C0AC1021D8FFB6F0051BB9A /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		0C0AC1041D8FFB6F0051BB9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C16C9321D93E20F00BB4BC6 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
-		0C1BA7441D9437B80074B42E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +80,6 @@
 		0C0AC0D61D8FFB6E0051BB9A = {
 			isa = PBXGroup;
 			children = (
-				0C1BA7441D9437B80074B42E /* Default-568h@2x.png */,
 				0C0AC0E11D8FFB6F0051BB9A /* MemeMe */,
 				0C0AC0F61D8FFB6F0051BB9A /* MemeMeTests */,
 				0C0AC1011D8FFB6F0051BB9A /* MemeMeUITests */,
@@ -240,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0AC0ED1D8FFB6F0051BB9A /* LaunchScreen.storyboard in Resources */,
-				0C1BA7451D9437B80074B42E /* Default-568h@2x.png in Resources */,
 				0C0AC0EA1D8FFB6F0051BB9A /* Assets.xcassets in Resources */,
 				0C0AC0E81D8FFB6F0051BB9A /* Main.storyboard in Resources */,
 			);
@@ -421,6 +417,8 @@
 		0C0AC1081D8FFB6F0051BB9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = urbanshed.MemeMe;
@@ -432,6 +430,8 @@
 		0C0AC1091D8FFB6F0051BB9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = urbanshed.MemeMe;
