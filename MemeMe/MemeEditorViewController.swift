@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorVC: UIViewController , UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -40,15 +40,9 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         // Ensure no image is set
         imagePickerView.image = nil
         
-        // Styling of Text
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.center
-        bottomTextField.textAlignment = NSTextAlignment.center
-        
-        // Text Values
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        // Styling and Set Text Fields
+        setUpTextField(textField: bottomTextField, text: "BOTTOM")
+        setUpTextField(textField: topTextField, text: "TOP")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -180,18 +174,12 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     
     @IBAction func selectImage(_ sender: UIBarButtonItem) {
         // When I click on Pick I want the UIImagePickerController to show my library of images
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        getImage(source: .photoLibrary)
     }
     
     @IBAction func takeImage(_ sender: UIButton) {
         // When I click on Camera I want the UIImagePickerController to allow me to take a new image
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        getImage(source: .camera)
     }
     
     @IBAction func shareMeme(_ sender: AnyObject) {
@@ -213,6 +201,19 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     func toggleNavToolBars(hidden: Bool){
         navBar!.isHidden = hidden
         toolbar!.isHidden = hidden
+    }
+    
+    func getImage(source: UIImagePickerControllerSourceType){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func setUpTextField(textField: UITextField, text: String){
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = NSTextAlignment.center
+        textField.text = text
     }
 }
 
