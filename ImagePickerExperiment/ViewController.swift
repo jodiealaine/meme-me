@@ -17,7 +17,8 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     var textTop: String = ""
     var textBottom: String = ""
@@ -33,6 +34,8 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Ensure Share Functionality is initial disabled
+        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +83,7 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text == ""){
             if textField.tag == 1 {
-             textField.text = "TOP"
+                textField.text = "TOP"
             }else {
                 textField.text = "BOTTOM"
             }
@@ -91,17 +94,17 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     }
     
     // MARK: Handle Keyboard Notifications
-    // Subscribe to Keyboard Notifications
+    
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    // Unsubscribe from Keyboard Notifications
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
     // When the keyboardWillShow notication is received, shift the view's frame up
     func keyboardWillShow(notification: NSNotification){
         if bottomTextField.isEditing {
@@ -124,7 +127,8 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     // MARK: Create the meme
     
     func generateMemedImage() -> UIImage {
-        // TODO: Hide the toolbar and navbar
+        // Hide the toolbar and navbar
+        toggleNavToolBars(hidden: true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -132,10 +136,10 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         let memedImage: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO: Show the toolbar and navbar
+        // Show the toolbar and navbar
+        toggleNavToolBars(hidden: false)
         
         return memedImage
-        
     }
     
     func save(){
@@ -143,9 +147,9 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         
         // Add it to the memes array in the Application Delegate
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme!)
-        print("I'm here",  meme)
     }
-   
+    
+    
     // MARK: UIImagePickerControllerDelegate
     
     // When I cancel then I want to return to the original scene
@@ -158,6 +162,8 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePickerView.image = selectedImage
         dismiss(animated: true, completion: nil)
+        // Enable the share button
+        shareButton.isEnabled = true
     }
 
     // MARK: Actions
@@ -169,7 +175,6 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
-    
     
     @IBAction func takeImage(_ sender: UIButton) {
         // When I click on Camera I want the UIImagePickerController to allow me to take a new image
@@ -188,5 +193,12 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         self.present(shareViewController, animated: true, completion: nil)
 
     }
+    
+    // MARK: Utility Functions
+    func toggleNavToolBars(hidden: Bool){
+        navBar!.isHidden = hidden
+        toolbar!.isHidden = hidden
+    }
+
 }
 
