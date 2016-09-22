@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePickerExperiment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,31 +24,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-Pb-itO">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-Pb-itO">
                                 <items>
-                                    <barButtonItem title="Pick" id="y5U-m8-qZe">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="N7r-kx-itR"/>
+                                    <barButtonItem image="photoLibraryIcon" width="66" id="y5U-m8-qZe">
                                         <connections>
                                             <action selector="selectImage:" destination="BYZ-38-t0r" id="aWx-IF-5lf"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="Mbr-qH-8G6">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zGe-cB-7Eo">
-                                            <rect key="frame" x="59" y="7" width="54" height="30"/>
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zGe-cB-7Eo">
+                                            <rect key="frame" x="183" y="-8" width="85" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Camera"/>
+                                            <state key="normal" image="cameraIcon"/>
                                             <connections>
                                                 <action selector="takeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vki-Tb-vEE"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RcK-8I-8cY"/>
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgA-ic-e4w">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem id="CKL-wn-h5O">
-                                        <barButtonItem key="leftBarButtonItem" title="Share" id="aDg-3j-H82">
+                                        <barButtonItem key="leftBarButtonItem" image="shareButton" id="aDg-3j-H82">
                                             <connections>
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="9kG-qe-3ir"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="cancelIcon" id="663-8w-MCa">
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="cancelMeme:" destination="BYZ-38-t0r" id="Azd-ej-hW0"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -63,8 +72,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="leading" secondItem="4rk-Qg-Cbu" secondAttribute="leading" id="J34-ag-15b"/>
-                            <constraint firstItem="LgA-ic-e4w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="JKX-15-bmX"/>
-                            <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="4rk-Qg-Cbu" secondAttribute="bottom" constant="40" id="Kcw-bd-oqC"/>
+                            <constraint firstItem="LgA-ic-e4w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="JKX-15-bmX"/>
+                            <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="4rk-Qg-Cbu" secondAttribute="bottom" constant="90" id="Kcw-bd-oqC"/>
                             <constraint firstItem="9Aj-qT-kh3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NAx-jF-Vdj"/>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="OWM-J3-7kI"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" id="Pyg-SX-7II"/>
@@ -72,7 +81,7 @@
                             <constraint firstItem="4rk-Qg-Cbu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U5l-Y5-f9i"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="UIu-RJ-hqd"/>
                             <constraint firstAttribute="trailing" secondItem="AKz-0d-5tc" secondAttribute="trailing" id="Zho-VA-I2I"/>
-                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="91" id="bAq-Fx-GwM"/>
+                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="112" id="bAq-Fx-GwM"/>
                             <constraint firstAttribute="trailing" secondItem="9Aj-qT-kh3" secondAttribute="trailing" id="bDX-zQ-Wzh"/>
                             <constraint firstItem="LgA-ic-e4w" firstAttribute="leading" secondItem="9Aj-qT-kh3" secondAttribute="leading" id="e8B-tq-e9q"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mvB-TB-0BE"/>
@@ -95,4 +104,10 @@
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cameraIcon" width="28" height="21"/>
+        <image name="cancelIcon" width="26" height="26"/>
+        <image name="photoLibraryIcon" width="30" height="22"/>
+        <image name="shareButton" width="39" height="38"/>
+    </resources>
 </document>

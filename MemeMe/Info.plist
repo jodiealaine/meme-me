@@ -43,5 +43,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Meme app uses images taken within the app so that you can add memes and share with social media and email clients</string>
 </dict>
 </plist>

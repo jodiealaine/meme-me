@@ -36,6 +36,19 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         super.viewDidLoad()
         // Ensure Share Functionality is initial disabled
         shareButton.isEnabled = false
+        
+        // Ensure no image is set
+        imagePickerView.image = nil
+        
+        // Styling of Text
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment.center
+        bottomTextField.textAlignment = NSTextAlignment.center
+        
+        // Text Values
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +58,9 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         // Handle the text field's user input through delegate callbacks
         topTextField.delegate = self
         bottomTextField.delegate = self
-        
-        // Styling of Text
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.center
-        bottomTextField.textAlignment = NSTextAlignment.center
+ 
+        // Styling Icons
+        shareButton.image = UIImage(named: "shareIcon.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
         // Subscribe to Keyboard Notifications
         self.subscribeToKeyboardNotifications()
@@ -191,7 +201,12 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         let shareViewController : UIActivityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
         shareViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
         self.present(shareViewController, animated: true, completion: nil)
-
+    }
+    
+    // TODO: Cancel seems to need to return to another page... refresh doesn't seem to work
+    @IBAction func cancelMeme(_ sender: AnyObject){
+        viewDidLoad()
+        viewWillAppear(true)
     }
     
     // MARK: Utility Functions
@@ -199,6 +214,5 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         navBar!.isHidden = hidden
         toolbar!.isHidden = hidden
     }
-
 }
 
