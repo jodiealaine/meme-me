@@ -14,6 +14,8 @@
 		0C0AC0ED1D8FFB6F0051BB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0AC0EB1D8FFB6F0051BB9A /* LaunchScreen.storyboard */; };
 		0C0AC0F81D8FFB6F0051BB9A /* ImagePickerExperimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AC0F71D8FFB6F0051BB9A /* ImagePickerExperimentTests.swift */; };
 		0C0AC1031D8FFB6F0051BB9A /* ImagePickerExperimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AC1021D8FFB6F0051BB9A /* ImagePickerExperimentUITests.swift */; };
+		0C16C9331D93E20F00BB4BC6 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16C9321D93E20F00BB4BC6 /* Meme.swift */; };
+		0C16C9341D93E20F00BB4BC6 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16C9321D93E20F00BB4BC6 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 		0C0AC0FE1D8FFB6F0051BB9A /* ImagePickerExperimentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagePickerExperimentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C0AC1021D8FFB6F0051BB9A /* ImagePickerExperimentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerExperimentUITests.swift; sourceTree = "<group>"; };
 		0C0AC1041D8FFB6F0051BB9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C16C9321D93E20F00BB4BC6 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 				0C0AC0E91D8FFB6F0051BB9A /* Assets.xcassets */,
 				0C0AC0EB1D8FFB6F0051BB9A /* LaunchScreen.storyboard */,
 				0C0AC0EE1D8FFB6F0051BB9A /* Info.plist */,
+				0C16C9321D93E20F00BB4BC6 /* Meme.swift */,
 			);
 			path = ImagePickerExperiment;
 			sourceTree = "<group>";
@@ -259,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C16C9331D93E20F00BB4BC6 /* Meme.swift in Sources */,
 				0C0AC0E51D8FFB6F0051BB9A /* ViewController.swift in Sources */,
 				0C0AC0E31D8FFB6F0051BB9A /* AppDelegate.swift in Sources */,
 			);
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0AC0F81D8FFB6F0051BB9A /* ImagePickerExperimentTests.swift in Sources */,
+				0C16C9341D93E20F00BB4BC6 /* Meme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

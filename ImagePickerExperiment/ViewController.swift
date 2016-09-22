@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
@@ -15,6 +16,12 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    var textTop: String = ""
+    var textBottom: String = ""
+    var image: UIImage!
+    var memedImage: UIImage!
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.black,
@@ -61,7 +68,7 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
     
     func textFieldDidBeginEditing(_ textField: UITextField){
         // Only remove default text
-        if !(textField.text == "TOP" || textField.text == "BOTTOM") {
+        if (textField.text == "TOP" || textField.text == "BOTTOM") {
             textField.text = ""
         }
         if topTextField.isEditing {
@@ -69,6 +76,15 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textField.text == ""){
+            if textField.tag == 1 {
+             textField.text = "TOP"
+            }else {
+                textField.text = "BOTTOM"
+            }
+        }
+    }
     func resetViewFrame(){
         view.frame.origin.y = 0
     }
@@ -104,6 +120,31 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         }
     }
     
+    // MARK: Create the meme
+    
+    func generateMemedImage() -> UIImage {
+        // TODO: Hide the toolbar and navbar
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO: Show the toolbar and navbar
+        
+        return memedImage
+        
+    }
+    
+    func save(){
+        let meme = Meme(textTop: topTextField.text!, textBottom: bottomTextField.text!, image: imagePickerView.image, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme!)
+        print("I'm here",  meme)
+    }
+   
     // MARK: UIImagePickerControllerDelegate
     
     // When I cancel then I want to return to the original scene
@@ -135,6 +176,16 @@ class ViewController: UIViewController , UITextFieldDelegate, UIImagePickerContr
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareMeme(_ sender: UIBarButtonItem) {
+        print("hi")
+        save()
+        let itemsToShare = [memedImage]
+        let share = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+        share.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+        self.present(share, animated: true, completion: nil)
+        
     }
 }
 
