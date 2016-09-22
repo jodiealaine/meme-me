@@ -71,22 +71,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AKz-0d-5tc" firstAttribute="leading" secondItem="4rk-Qg-Cbu" secondAttribute="leading" id="J34-ag-15b"/>
+                            <constraint firstItem="AKz-0d-5tc" firstAttribute="leading" secondItem="4rk-Qg-Cbu" secondAttribute="leading" constant="6" id="J34-ag-15b"/>
                             <constraint firstItem="LgA-ic-e4w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="JKX-15-bmX"/>
-                            <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="4rk-Qg-Cbu" secondAttribute="bottom" constant="90" id="Kcw-bd-oqC"/>
+                            <constraint firstItem="2dv-Pb-itO" firstAttribute="top" secondItem="4rk-Qg-Cbu" secondAttribute="bottom" constant="22" id="Kcw-bd-oqC"/>
                             <constraint firstItem="9Aj-qT-kh3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NAx-jF-Vdj"/>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="OWM-J3-7kI"/>
-                            <constraint firstItem="2dv-Pb-itO" firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" id="Pyg-SX-7II"/>
+                            <constraint firstItem="2dv-Pb-itO" firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" constant="6" id="Pyg-SX-7II"/>
                             <constraint firstItem="AKz-0d-5tc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Q3f-WK-sv9"/>
-                            <constraint firstItem="4rk-Qg-Cbu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U5l-Y5-f9i"/>
+                            <constraint firstItem="4rk-Qg-Cbu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-6" id="U5l-Y5-f9i"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="UIu-RJ-hqd"/>
                             <constraint firstAttribute="trailing" secondItem="AKz-0d-5tc" secondAttribute="trailing" id="Zho-VA-I2I"/>
-                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="112" id="bAq-Fx-GwM"/>
+                            <constraint firstItem="9Aj-qT-kh3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="76" id="bAq-Fx-GwM"/>
                             <constraint firstAttribute="trailing" secondItem="9Aj-qT-kh3" secondAttribute="trailing" id="bDX-zQ-Wzh"/>
                             <constraint firstItem="LgA-ic-e4w" firstAttribute="leading" secondItem="9Aj-qT-kh3" secondAttribute="leading" id="e8B-tq-e9q"/>
                             <constraint firstItem="2dv-Pb-itO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mvB-TB-0BE"/>
                             <constraint firstItem="LgA-ic-e4w" firstAttribute="trailing" secondItem="9Aj-qT-kh3" secondAttribute="trailing" id="otO-VM-yUG"/>
-                            <constraint firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" id="xTD-pU-7UW"/>
+                            <constraint firstAttribute="trailing" secondItem="4rk-Qg-Cbu" secondAttribute="trailing" constant="6" id="xTD-pU-7UW"/>
                         </constraints>
                     </view>
                     <connections>
