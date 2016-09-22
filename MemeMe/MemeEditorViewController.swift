@@ -57,14 +57,14 @@ class MemeEditorViewController: UIViewController , UITextFieldDelegate, UIImageP
         shareButton.image = UIImage(named: "shareIcon.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
         // Subscribe to Keyboard Notifications
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Unsubscribe from Keyboard Notifications
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     // MARK: Handle keyboard input
@@ -111,7 +111,7 @@ class MemeEditorViewController: UIViewController , UITextFieldDelegate, UIImageP
     
     // When the keyboardWillShow notication is received, shift the view's frame up
     func keyboardWillShow(notification: NSNotification){
-        if bottomTextField.isEditing {
+        if (bottomTextField.isFirstResponder && view.frame.origin.y == 0) {
             view.frame.origin.y -= getKeyboardHeight(notification: notification)
         }
     }
